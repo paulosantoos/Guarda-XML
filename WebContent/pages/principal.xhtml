@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/modeloSistema.xhtml">
+
+	<ui:define name="menu">
+		<ui:include src="/includes/menuPrincipal.xhtml" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:form>
+			<h:panelGrid  cellspacing="5">
+				<h:outputText
+					value="Bem-vindo #{MBAutenticar.usuarioDomainLogado.usu_nome.toUpperCase()}." />
+
+			</h:panelGrid>
+		</h:form>
+
+		<h:form>
+			<h:panelGrid >
+				<h:graphicImage value="/images/logo.png" style="vertical-align: middle;" />
+			</h:panelGrid>
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>
