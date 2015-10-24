@@ -13,38 +13,47 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="empresa")
-@NamedQueries({ @NamedQuery(name = "Empresa.listar", query = "SELECT empresa FROM EmpresaDomain empresa")})
+@Table(name = "empresa")
+@NamedQueries({ @NamedQuery(name = "Empresa.listar", query = "SELECT empresa FROM EmpresaDomain empresa") })
 public class EmpresaDomain {
-	
+
+	public EmpresaDomain() {
+
+	}
+
+	public EmpresaDomain(String emp_rsocial) {
+		super();
+		this.emp_rsocial = emp_rsocial;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="emp_id")
+	@Column(name = "emp_id")
 	private int emp_id;
-	
-	@Column(name="emp_rsocial", length=50, nullable = false)
+
+	@Column(name = "emp_rsocial", length = 50, nullable = false)
 	private String emp_rsocial;
-	
-	@Column(name="emp_fant")
+
+	@Column(name = "emp_fant")
 	private String emp_fantasia;
-	
-	@Column(name="emp_cnpj", length=50, nullable = false)
+
+	@Column(name = "emp_cnpj", length = 50, nullable = false)
 	private String emp_cnpj;
-	
-	@Column(name="emp_endereco")
+
+	@Column(name = "emp_endereco")
 	private String emp_endereco;
-	
-	@Column(name="emp_telefone")
+
+	@Column(name = "emp_telefone")
 	private String emp_telefone;
-	
-	@Column(name="emp_numero")
+
+	@Column(name = "emp_numero")
 	private String emp_numero;
-	
-	@Column(name="emp_bairro")
+
+	@Column(name = "emp_bairro")
 	private String emp_bairro;
-	
-	@ManyToOne(fetch = FetchType.EAGER) 
-	@JoinColumn(name = "emp_cidade", referencedColumnName = "cid_id", nullable = false) 
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "emp_cidade", referencedColumnName = "cid_id", nullable = false)
 	private CidadeDomain emp_cidade;
 
 	public int getEmp_id() {
@@ -119,6 +128,4 @@ public class EmpresaDomain {
 		this.emp_cidade = emp_cidade;
 	}
 
-	
-	
 }

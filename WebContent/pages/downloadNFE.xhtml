@@ -28,12 +28,37 @@
 		</p:dialog>
 
 		<h:form>
-			<p:commandButton value="Download" ajax="false"
-				onclick="PrimeFaces.monitorDownload(start, stop);"
-				icon="ui-icon-arrowthick-1-s">
-				<p:fileDownload value="#{downloadNFEBean.file}" />
-			</p:commandButton>
+			<h:panelGrid cellpadding="5" cellspacing="5">
+
+
+				<p:treeTable value="#{downloadNFEBean.root}" var="document"
+					selectionMode="checkbox"
+					selection="#{downloadNFEBean.selectedNodes}">
+					<f:facet name="header">
+            			Checkbox
+        			</f:facet>
+					<p:column headerText="Name">
+						<h:outputText value="#{document.xml_descricao}" />
+					</p:column>
+					<p:column headerText="Size">
+						<h:outputText value="#{document.xml_tipo}" />
+					</p:column>
+					<p:column headerText="Type">
+						<h:outputText value="#{document.xml_ano_mes}" />
+					</p:column>
+				</p:treeTable>
+
+
+				<p:commandButton value="Download" ajax="false"
+					onclick="PrimeFaces.monitorDownload(start, stop);"
+					icon="ui-icon-arrowthick-1-s">
+					<p:fileDownload value="#{downloadNFEBean.file}" />
+				</p:commandButton>
+			</h:panelGrid>
 		</h:form>
+
+
+
 
 		<script type="text/javascript">
 			function start() {
