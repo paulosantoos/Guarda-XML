@@ -37,8 +37,7 @@
 				<p:outputLabel for="txtUsuNome" value="Nome:" />
 				<p:inputText id="txtUsuNome" maxlength="50" size="55"
 					value="#{MBUsuario.usuario.usu_nome}" required="true"
-					requiredMessage="O campo nome é obrigatório."
-					>
+					requiredMessage="O campo nome é obrigatório.">
 				</p:inputText>
 
 				<p:outputLabel value="E-mail:" />
@@ -62,7 +61,8 @@
 					disabled="#{MBUsuario.acao == 'Excluir'}">
 					<f:selectItem itemValue="" itemLabel="Selecione uma empresa" />
 					<f:selectItems value="#{MBUsuario.comboEmpresas}" var="empresa"
-						itemValue="#{empresa.emp_id}" itemLabel="#{empresa.emp_rsocial.toUpperCase()}" />
+						itemValue="#{empresa.emp_id}"
+						itemLabel="#{empresa.emp_rsocial.toUpperCase()}" />
 				</p:selectOneMenu>
 
 
@@ -92,6 +92,7 @@
 				<!-- 					rendered="#{MBUsuario.acao == 'Excluir'}" /> -->
 
 				<p:button value="Voltar" icon="ui-icon-arrowreturnthick-1-w"
+					rendered="#{MBAutenticar.usuarioDomainLogado.usu_nome != null}"
 					outcome="/pages/principal.xhtml">
 				</p:button>
 			</h:panelGrid>

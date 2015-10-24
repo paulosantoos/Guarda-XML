@@ -68,7 +68,7 @@ public class AutenticacaoBean {
 	}
 
 	
-//	public String novoCadastro(){
-//		return "/pages/cadastroUsuario.xhtml?faces-redirect=true";
-//	}
+	public String novoCadastro(){
+		return "/pages/usuarioCadastro.xhtml?faces-redirect=true";
+	}
 }
